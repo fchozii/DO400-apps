@@ -1,4 +1,4 @@
-pipeine {
+pipeline {
     agent { node { label 'maven'}}
     environment { APP_NAMESPACE = 'gzxilu-security-scans'}
     stages {
