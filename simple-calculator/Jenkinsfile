@@ -1,0 +1,18 @@
+pipeline {
+    agent { node { label 'maven' }}
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'notifications', 
+                    url: 'https://github.com/fchozii/DO400-apps.git'
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('simple-calculator') {
+                    sh './mvnw clean test'
+                }
+            }
+        }
+    }
+}
